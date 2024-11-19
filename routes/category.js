@@ -12,7 +12,6 @@ router.get("/", (req, res) => {
     const checkid = Number(authidParam);
 
     filteredCategories = categories.filter((c) => c.authid === checkid);
-    // If authid is 0, return the bad message
     if (checkid === 0) {
       return res.json({
         message: "It's bad and I don't like it",

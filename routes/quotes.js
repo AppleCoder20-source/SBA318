@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const quotes = require("../data/quotes"); 
-const error = require("../utilities/error"); // Import the error utility function
+const error = require("../utilities/error"); 
 
 router
   .route("/")
