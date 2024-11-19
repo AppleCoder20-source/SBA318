@@ -2,58 +2,43 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-const quotes = require("./routes/quotes");
+// Import Routes
+const quotesRouter = require("./routes/quotes"); 
+const catRouter = require("./routes/category");
 
-// Use our Routes
-app.use("/author/quotes", quotes);
-app.use("/api/comments", comments);
+// Middleware for parsing JSON requests
+app.use(express.json());
 
-// Adding some HATEOAS links.
+// Use Routes
+app.use("/quotes", quotesRouter); 
+app.use("/category", catRouter);
+
+// Root Endpoint with HATEOAS Links
 app.get("/", (req, res) => {
   res.json({
     links: [
       {
         href: "/api",
-        rel: "api",
+        rel: "This is for Quotes",
         type: "GET",
       },
     ],
   });
 });
 
-// Adding some HATEOAS links.
+// API Endpoint with HATEOAS Links
 app.get("/api", (req, res) => {
   res.json({
     links: [
       {
-        href: "api/users",
-        rel: "users",
+        href: "/quotes",
+        rel: "quotes",
         type: "GET",
       },
       {
-        href: "api/users",
-        rel: "users",
-        type: "POST",
-      },
-      {
-        href: "api/posts",
-        rel: "posts",
+        href: "/category",
+        rel: "category",
         type: "GET",
-      },
-      {
-        href: "api/posts",
-        rel: "posts",
-        type: "POST",
-      },
-      {
-        href: "api/comments",
-        rel: "comments",
-        type: "GET",
-      },
-      {
-        href: "api/comments",
-        rel: "comments",
-        type: "POST",
       },
     ],
   });
@@ -80,5 +65,3 @@ app.use((err, req, res, next) => {
 app.listen(port, () => {
   console.log(`Server listening on port: ${port}.`);
 });
-
- 
