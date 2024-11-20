@@ -85,7 +85,20 @@ router
       next(error(404, `Quote with ID ${id} not found.`));
     }
   });
-
+  router
+  .route("/:id") 
+  .patch((req, res, next) => {
+    const Authors = quotes.find((u, i) => {
+      if (u.id == req.params.id) {
+        for (const key in req.body) {
+          quotes[i][key] = req.body[key];
+        }
+        return true;
+      }
+    });
+    if (Authors) res.json(Authors);
+    else next();
+  });
 // EJS Routes 
 // ---------------------------------------------
 
@@ -135,7 +148,9 @@ module.exports = router;
 // http://localhost:3000/quotes/yes/quotes
 // http://localhost:3000/quotes/no/quotes
 
-//
+//link for PATCH 
+//http://localhost:3000/quotes/1 
+
 
 // link for delete:
 // http://localhost:3000/quotes/del/3 this 3 can be any id number
