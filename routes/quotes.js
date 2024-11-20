@@ -154,7 +154,7 @@ module.exports = router;
 
 
 // link for delete:
-// http://localhost:3000/quotes/del/3 this 3 can be any id number
+// http://localhost:3000/quotes/del/:id this 3 can be any id number
 
 //link for EJS
 //http://localhost:3000/quotes/ejs
