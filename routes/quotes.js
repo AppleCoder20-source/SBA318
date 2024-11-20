@@ -150,7 +150,7 @@ module.exports = router;
 // http://localhost:3000/quotes/no/quotes
 
 //link for PATCH 
-//http://localhost:3000/quotes/1 
+//http://localhost:3000/quotes/patch/:id
 
 
 // link for delete:
