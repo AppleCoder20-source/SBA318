@@ -2,12 +2,16 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+app.set("view engine", "ejs");
+
 // Import Routes
 const quotesRouter = require("./routes/quotes"); 
 const catRouter = require("./routes/category");
 
 // Middleware for parsing JSON requests
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 
 // Use Routes
 app.use("/quotes", quotesRouter); 

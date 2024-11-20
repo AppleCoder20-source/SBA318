@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    .quote {
+      margin-bottom: 15px;
+    }
+    .quote p {
+      font-size: 18px;
+      margin: 5px 0;
+    }
+    .author {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .message {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1><%= title %></h1>
+
+  <% if (quotes && quotes.length > 0) { %>
+    <% quotes.forEach(function(quote) { %>
+      <div class="quote">
+        <p>"<%= quote.quote %>"</p>
+        <p class="author">- <%= quote.author %></p>
+      </div>
+    <% }); %>
+  <% } else { %>
+    <p class="message"><%= message %></p>
+  <% } %>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quote by <%= quote.author %></title>
+  <style>
+  </style>
+</head>
+<body>
+  <h1>Quote by <%= quote.author %></h1>
+  <div class="quote">
+    <p>"<%= quote.quote %>"</p>
+    <p class="author">- <%= quote.author %></p>
+    <p>Favorites: <%= quote.favorites %></p>
+  </div>
+  <!-- Form to delete the quote -->
+  <form action="/quotes/delete/<%= quote.id %>" method="POST">
+    <button type="submit">Delete Quote</button>
+  </form>
+</body>
+</html>

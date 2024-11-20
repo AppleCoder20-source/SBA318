@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add a New Quote</title>
+  <style>
+  </style>
+</head>
+<body>
+  <h1>Add a New Quote</h1>
+  <% if (typeof error !== 'undefined') { %>
+    <p class="message"><%= error %></p>
+  <% } %>
+  <form action="/quotes" method="POST">
+    <label for="quote">Quote:</label>
+    <textarea id="quote" name="quote" rows="4" required></textarea>
+
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" required>
+
+    <label for="favorites">Favorites:</label>
+    <select id="favorites" name="favorites" required>
+      <option value="">Select</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+
+    <button type="submit">Add Quote</button>
+  </form>
+</body>
+</html>
