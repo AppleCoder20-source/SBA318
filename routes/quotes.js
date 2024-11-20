@@ -76,7 +76,6 @@ router
   .delete((req, res, next) => {
     const id = Number(req.params.id);
 
-    // Find the index of the quote to delete
     const index = quotes.findIndex((quote) => quote.id === id);
 
     if (index !== -1) {
@@ -90,9 +89,8 @@ router
 // EJS Routes 
 // ---------------------------------------------
 
-// Route to display quotes based on favorites using EJS
-router.get("/ejs/:favorites", (req, res, next) => {
-  const fav = req.params.favorites;
+router.get("/ejs/quotes", (req, res, next) => {
+  const fav = req.query.favorites;
 
   if (fav !== "yes" && fav !== "no") {
     return next(
@@ -131,3 +129,7 @@ router.use((err, req, res, next) => {
 module.exports = router;
 // link for delete:
 // http://localhost:3000/quotes/del/3 this 3 can be any id number
+
+//link for EJS
+//http://localhost:3000/quotes/ejs
+

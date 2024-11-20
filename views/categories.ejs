@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,3 +43,28 @@
   <% } %>
 </body>
 </html>
+
+
+<form id="categoryForm" action="/quotes" method="GET">
+    <label for="favorites">Choose a category:</label>
+    <select name="favorites" id="favorites" onchange="updateFormAction()">
+      <option value="">--Select--</option>
+      <option value="yes">Favorite Quotes</option>
+      <option value="no">Disliked Quotes</option>
+    </select>
+    <button type="submit">Show Quotes</button>
+  </form>
+  
+  <script>
+    function updateFormAction() {
+      const select = document.getElementById('favorites');
+      const selectedValue = select.value;
+      const form = document.getElementById('categoryForm');
+      if (selectedValue) {
+        form.action = `/quotes/${selectedValue}/quotes`;
+      } else {
+        form.action = "/quotes";
+      }
+    }
+  </script>
+  
