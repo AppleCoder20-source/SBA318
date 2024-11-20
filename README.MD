@@ -15,7 +15,7 @@ All of this is done via the template engine EJS and all they have to do is click
 
 * How to run the program
 * nodemon index.js
-* go to localhost:3000 and follow the links in routes/quotes.js folder 
+* go to localhost:3000
 
 ## Authors
 Mashiur Rahman
