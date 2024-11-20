@@ -14,8 +14,12 @@ router.get("/", (req, res) => {
     filteredCategories = categories.filter((c) => c.authid === checkid);
     if (checkid === 0) {
       return res.json({
-        message: "It's bad and I don't like it",
-        categories: filteredCategories,
+        message: "Bad Category",
+        categories: filteredCategories.map((c) => ({
+          id: c.id,
+          category: c.category,
+          author: c.author,
+        }))
       });
     }
   }
@@ -28,11 +32,14 @@ router.get("/", (req, res) => {
   }
   // Return the filtered categories with a good message
   return res.json({
-    message: "Good message",
-    categories: filteredCategories,
+    message: "Good Category",
+    categories: filteredCategories.map((c) => ({
+      id: c.id,
+      category: c.category,
+      author: c.author,
+    })),
   });
 });
-
 module.exports = router;
 
 //URLS to test link for this file 

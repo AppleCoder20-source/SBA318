@@ -20,7 +20,7 @@ router
     const { quote, author, favorites } = req.body;
 
     if (!quote || !author || !favorites) {
-      return next(error(400, "ID, Quote, author, and favorites are required."));
+      return next(error(400, "Quote, author, and favorites are required."));
     }
     if (favorites !== "yes" && favorites !== "no") {
       return next(error(400, "Invalid Route. Please use 'yes' or 'no'."));
@@ -54,10 +54,6 @@ router
       );
     }
     const filteredQuotes = quotes.filter((quote) => quote.favorites === fav);
-
-    if (filteredQuotes.length === 0) {
-      return res.status(404).json({ message: `No quotes found for favorites = '${fav}'.` });
-    }
 
     if (fav === "no") {
       return res.json({
