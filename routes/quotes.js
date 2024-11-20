@@ -127,6 +127,16 @@ router.use((err, req, res, next) => {
 });
 
 module.exports = router;
+
+//default link:
+//http://localhost:3000/quotes (also default for POST requests)
+
+//GET Links:
+// http://localhost:3000/quotes/yes/quotes
+// http://localhost:3000/quotes/no/quotes
+
+//
+
 // link for delete:
 // http://localhost:3000/quotes/del/3 this 3 can be any id number
 
