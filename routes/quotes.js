@@ -85,8 +85,9 @@ router
       next(error(404, `Quote with ID ${id} not found.`));
     }
   });
+  
   router
-  .route("/:id") 
+  .route("/patch/:id") 
   .patch((req, res, next) => {
     const Authors = quotes.find((u, i) => {
       if (u.id == req.params.id) {
